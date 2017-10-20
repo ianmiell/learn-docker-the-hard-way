@@ -1,0 +1,96 @@
+Basics
+======
+
+----
+docker pull ubuntu
+docker run -ti ubuntu bash
+----
+
+----
+docker run -ti centos bash
+----
+
+----
+docker images
+----
+
+----
+docker ps -a
+----
+
+
+
+
+
+Create a container
+==================
+
+----
+docker pull ubuntu
+----
+
+----
+docker run --name firstcontainer -d ubuntu sleep 99999
+docker exec -ti firstcontainer bash
+----
+
+----
+top
+ps -ef
+apt-get update -y
+apt-get install -y nginx
+exit
+----
+
+----
+docker images
+----
+
+----
+docker ps
+----
+
+----
+docker commit firstcontainer
+----
+
+----
+docker images
+----
+
+----
+docker tag <ID> firstimage
+----
+
+
+Dockerfiles
+===========
+
+
+----
+mkdir -p ldthw_1
+cd ldthw_1
+cat > Dockerfile << END
+FROM ubuntu
+RUN apt-get update -y
+RUN apt-get install -y nginx
+CMD bash
+END
+docker build -t firstimage .
+----
+
+
+----
+docker run -ti firstimage
+----
+
+Using your own base images
+===
+
+----
+FROM firstimage
+RUN ....
+----
+
+
+What next? Tagging? Pushing?

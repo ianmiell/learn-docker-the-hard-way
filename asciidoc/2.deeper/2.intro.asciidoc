@@ -1,0 +1,32 @@
+
+
+
+
+The cache
+====
+
+RETURNING TO EXAMPLE IN 1)
+
+Using the cache:
+
+----
+RUN apt-get install -y nginx vim
+----
+
+vs
+
+----
+RUN apt-get install -y nginx
+RUN apt-get install -y vim
+----
+
+Docker has no way of knowing if things have changed (eg a security fix for the nginx package).
+
+In that case, force with --no-cache.
+
+
+
+Export / Save
+=============
+
+Images vs containers

@@ -1,0 +1,7 @@
+
+
+To cover:
+
+- Minikube
+- Key kubernetes concepts
+- 
