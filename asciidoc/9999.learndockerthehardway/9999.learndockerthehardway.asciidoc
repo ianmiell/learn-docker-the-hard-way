@@ -1,0 +1,13 @@
+= Learn Docker The Hard Way
+Ian Miell <ian.miell@gmail.com>
+v1.0, 2017-08-01
+:toc:
+
+
+//include::../1.core/1.core.asciidoc[]
+
+//include::../2.advanced_local/2.advanced_local.asciidoc[]
+
+//include::../3.remotes/3.remotes.asciidoc[]
+
+//include::../4.advanced/4.advanced.asciidoc[]

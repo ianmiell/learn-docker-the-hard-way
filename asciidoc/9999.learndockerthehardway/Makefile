@@ -1,0 +1,15 @@
+MAKEFILE_DIR:=$(dir $(CURDIR)/$(word $(words $(MAKEFILE_LIST)),$(MAKEFILE_LIST)))
+MAKEFILE_BASENAME:=$(shell basename $(MAKEFILE_DIR))
+
+include ../../makefiles/Makefile.constants
+
+CHAPTER_SOURCE:=$(shell find .. | grep asciidoc)
+#CHAPTER_SOURCE:=$(MAKEFILE_DIR)/$(MAKEFILE_BASENAME).asciidoc
+#CHAPTER_TARGET:=$(OUTPUT_DIR)/$(MAKEFILE_BASENAME).html
+CHAPTER_TARGET:=$(OUTPUT_DIR)/learndockerthehardway.pdf
+
+#$(CHAPTER_TARGET): $(CHAPTER_SOURCE)
+$(CHAPTER_TARGET): $(CHAPTER_SOURCE)
+	asciidoctor -n -d book -D $(OUTPUT_DIR) 9999.learndockerthehardway.asciidoc
+	asciidoctor -n -r asciidoctor-pdf -d book -b pdf -D $(OUTPUT_DIR) 9999.learndockerthehardway.asciidoc
+

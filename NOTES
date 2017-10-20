@@ -1,0 +1,179 @@
+Basics
+======
+
+----
+docker pull ubuntu
+docker run -ti ubuntu bash
+----
+
+----
+docker run -ti centos bash
+----
+
+----
+docker images
+----
+
+----
+docker ps -a
+----
+
+
+
+
+
+Create a container
+==================
+
+----
+docker pull ubuntu
+----
+
+----
+docker run --name firstcontainer -d ubuntu sleep 99999
+docker exec -ti firstcontainer bash
+----
+
+----
+top
+ps -ef
+apt-get update -y
+apt-get install -y nginx
+exit
+----
+
+----
+docker images
+----
+
+----
+docker ps
+----
+
+----
+docker commit firstcontainer
+----
+
+----
+docker images
+----
+
+----
+docker tag <ID> firstimage
+----
+
+
+Dockerfiles
+===========
+
+Dockerfile
+----
+FROM ubuntu
+RUN apt-get update -y
+RUN apt-get install -y nginx
+----
+
+
+The cache
+
+Using the cache
+
+----
+RUN apt-get install -y nginx vim
+----
+
+vs
+
+----
+RUN apt-get install -y nginx
+RUN apt-get install -y vim
+----
+
+Docker has no way of knowing if things have changed (eg a security fix for the nginx package).
+
+In that case, 
+
+Changing the Dockerfile 
+
+----
+
+
+
+
+
+
+--------------------------
+
+
+Run
+  version     Show the Docker version information
+  pull        Pull an image or a repository from a registry
+  run         Run a command in a new container
+  images      List images
+  ps          List containers
+  search      Search the Docker Hub for images
+  rmi         Remove one or more images
+
+Image vs Container
+  save        Save one or more images to a tar archive (streamed to STDOUT by default)
+  export      Export a container's filesystem as a tar archive
+  load        Load an image from a tar archive or STDIN
+  import      Import the contents from a tarball to create a filesystem image
+  commit      Create a new image from a container's changes
+  diff        Inspect changes to files or directories on a container's filesystem
+
+Dockerfile
+  build       Build an image from a Dockerfile
+	FROM
+	RUN
+	ADD
+	WORKDIR
+	TODO
+	Build
+		Creates a new image each line
+		Layering
+
+Container control
+  kill        Kill one or more running containers
+  rm          Remove one or more containers
+  create      Create a new container
+  rename      Rename a container
+  restart     Restart one or more containers
+  start       Start one or more stopped containers
+  pause       Pause all processes within one or more containers
+  unpause     Unpause all processes within one or more containers
+  stop        Stop one or more running containers
+  exec        Run a command in a running container
+  cp          Copy files/folders between a container and the local filesystem
+  tag         Create a tag TARGET_IMAGE that refers to SOURCE_IMAGE
+  wait        Block until one or more containers stop, then print their exit codes
+  attach      Attach local standard input, output, and error streams to a running container
+
+
+Container information
+  logs        Fetch the logs of a container
+  inspect     Return low-level information on Docker objects
+  port        List port mappings or a specific mapping for the container
+  top         Display the running processes of a container
+
+Host information
+  events      Get real time events from the server
+  info        Display system-wide information
+  stats       Display a live stream of container(s) resource usage statistics
+ 
+Image information 
+  history     Show the history of an image
+
+Hub
+  login       Log in to a Docker registry
+  logout      Log out from a Docker registry
+  push        Push an image or a repository to a registry
+
+
+
+
+
+
+NOT COVERED
+  deploy      Deploy a new stack or update an existing stack
+  update      Update configuration of one or more containers
