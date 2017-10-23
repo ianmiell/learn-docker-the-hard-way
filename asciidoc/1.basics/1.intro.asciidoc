@@ -93,4 +93,27 @@ RUN ....
 ----
 
 
-What next? Tagging? Pushing?
+Running
+=======
+
+
+
+CMD vs ENTRYPOINT
+arg to entrypoin
+
+
+Daemonize
+=========
+
+-d vs -ti
+
+
+Ports
+=====
+
+-p
+
+
+
+Volumes
+=======

@@ -1,11 +1,23 @@
 
-
-
-
 The cache
 ====
 
 RETURNING TO EXAMPLE IN 1)
+
+----
+mkdir -p ldthw_2.1
+cd ldthw_2.1
+cat > Dockerfile << END
+FROM ubuntu
+RUN apt-get update -y
+RUN apt-get install -y nginx
+CMD bash
+END
+docker build -t secondimage .
+----
+
+
+That was quick. Because cache.
 
 Using the cache:
 
@@ -25,8 +37,15 @@ Docker has no way of knowing if things have changed (eg a security fix for the n
 In that case, force with --no-cache.
 
 
+History
+=======
+
+Show layers
 
 Export / Save
 =============
 
 Images vs containers
+
+
+
